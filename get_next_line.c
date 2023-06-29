@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrivas- <anrivas-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: anrivas- <anrivas-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 12:56:11 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 13:39:42 by anrivas-         ###   ########.fr       */
+/*   Created: 2023/06/29 16:33:13 by anrivas-          #+#    #+#             */
+/*   Updated: 2023/06/29 16:35:50 by anrivas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"	
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anrivas- <anrivas-@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 12:56:11 by anrivas-          #+#    #+#             */
+/*   Updated: 2023/06/29 16:29:44 by anrivas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
 
 static char	*function_name(int fd, char *buf, char *backup)
 {
@@ -66,7 +78,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	buf = (char *)calloc(BUFFER_SIZE + 1, sizeof(char));
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (0);
 	line = function_name(fd, buf, backup);
@@ -81,7 +93,7 @@ char	*get_next_line(int fd)
 int	main(void)
 {
 	int		fd;
-	
+
 	fd = open("read.txt", O_RDONLY);
 	printf("%s", get_next_line(fd));
 	close(fd);

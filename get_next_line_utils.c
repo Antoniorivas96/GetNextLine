@@ -3,10 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: anrivas- <anrivas-@student.42malaga.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/29 16:33:13 by anrivas-          #+#    #+#             */
+/*   Updated: 2023/06/29 16:36:33 by anrivas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: anrivas- <anrivas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:51:20 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 13:38:43 by anrivas-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:40:06 by anrivas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +46,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	if (!src && !dst)
 		return (0);
-		cont = 0;
+	cont = 0;
 	while (cont < n)
 	{
 		*((unsigned char *)(dst + cont)) = *((unsigned char *)(src + cont));
@@ -96,34 +108,3 @@ char	*ft_strdup(const char *s1)
 	ft_memcpy (s2, s1, len);
 	return ((char *) s2);
 }
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*ptr;
-
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_bzero(ptr, count * size);
-	return (ptr);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-void	*ft_memset(void *dest, int c, size_t len)
-{
-	size_t			cont;
-	unsigned char	*str;
-
-	cont = 0;
-	str = (unsigned char *)dest;
-	while (cont < len)
-	{
-		str[cont] = (unsigned char)c;
-		cont ++;
-	}
-	return (dest);
-}
-

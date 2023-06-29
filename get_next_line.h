@@ -3,17 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrivas- <anrivas-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: anrivas- <anrivas-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 12:51:04 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 13:38:40 by anrivas-         ###   ########.fr       */
+/*   Created: 2023/06/29 16:33:13 by anrivas-          #+#    #+#             */
+/*   Updated: 2023/06/29 16:36:57 by anrivas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H 
-# define GET_NEXT_LINE_H 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anrivas- <anrivas-@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 12:51:04 by anrivas-          #+#    #+#             */
+/*   Updated: 2023/06/29 15:42:57 by anrivas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include <stdlib.h> 
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
