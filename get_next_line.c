@@ -3,22 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrivas- <anrivas-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: anrivas- <anrivas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/29 16:33:13 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 16:35:50 by anrivas-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anrivas- <anrivas-@student.42malaga.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 12:56:11 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 16:29:44 by anrivas-         ###   ########.fr       */
+/*   Created: 2023/06/29 16:40:39 by anrivas-          #+#    #+#             */
+/*   Updated: 2023/06/29 17:44:51 by anrivas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +16,10 @@ static char	*function_name(int fd, char *buf, char *backup)
 {
 	int		read_line;
 	char	*char_temp;
+	int		i;
 
 	read_line = 1;
+	i = 0;
 	while (read_line != '\0')
 	{
 		read_line = read(fd, buf, BUFFER_SIZE);
@@ -44,7 +34,9 @@ static char	*function_name(int fd, char *buf, char *backup)
 		backup = ft_strjoin(char_temp, buf);
 		free(char_temp);
 		char_temp = NULL;
-		if (ft_strchr (buf, '\n'))
+		if (ft_strchr (buf, '\n') && ft_strchr (buf, '\0'))
+			break ;
+		else if (ft_strchr (buf, '\n'))
 			break ;
 	}
 	return (backup);
@@ -58,10 +50,12 @@ static char	*extract(char *line)
 	count = 0;
 	while (line[count] != '\n' && line[count] != '\0')
 		count++;
+	if (count == ft_strlen(line) - 1)
+		return (NULL);
 	if (line[count] == '\0' || line[1] == '\0')
 		return (0);
 	backup = ft_substr(line, count + 1, ft_strlen(line) - count);
-	if (*backup == '\0')
+	if (backup[0] == '\0')
 	{
 		free(backup);
 		backup = NULL;
@@ -89,14 +83,13 @@ char	*get_next_line(int fd)
 	backup = extract(line);
 	return (line);
 }
-/*
-int	main(void)
-{
-	int		fd;
+// int	main(void)
+// {
+// 	int		fd;
 
-	fd = open("read.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
-	close(fd);
-	return (0);
-}
-*/
+// 	fd = open("read.txt", O_RDONLY);
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	close(fd);
+// 	return (0);
+// }

@@ -3,22 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrivas- <anrivas-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: anrivas- <anrivas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/29 16:33:13 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 16:36:57 by anrivas-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anrivas- <anrivas-@student.42malaga.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 12:51:04 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:42:57 by anrivas-         ###   ########.fr       */
+/*   Created: 2023/06/29 16:41:01 by anrivas-          #+#    #+#             */
+/*   Updated: 2023/06/29 17:44:53 by anrivas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +29,5 @@ size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *dest, int c, size_t len);
 
 #endif
