@@ -6,7 +6,7 @@
 /*   By: anrivas- <anrivas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:40:48 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 17:44:49 by anrivas-         ###   ########.fr       */
+/*   Updated: 2023/06/30 12:39:15 by anrivas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ char	*ft_strchr(const char *str, int c)
 	}
 	return (0);
 }
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
@@ -83,16 +84,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_memcpy(substr, s + start, len);
 	substr[len] = '\0';
 	return (substr);
-}
-char	*ft_strdup(const char *s1)
-{
-	size_t	len;
-	char	*s2;
-
-	len = ft_strlen (s1) + 1;
-	s2 = malloc (len);
-	if (!s2)
-		return (0);
-	ft_memcpy (s2, s1, len);
-	return ((char *) s2);
 }

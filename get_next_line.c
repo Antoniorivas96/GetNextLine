@@ -6,11 +6,24 @@
 /*   By: anrivas- <anrivas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:40:39 by anrivas-          #+#    #+#             */
-/*   Updated: 2023/06/29 17:44:51 by anrivas-         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:32:17 by anrivas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strdup(const char *s1)
+{
+	size_t	len;
+	char	*s2;
+
+	len = ft_strlen (s1) + 1;
+	s2 = malloc (len);
+	if (!s2)
+		return (0);
+	ft_memcpy (s2, s1, len);
+	return ((char *) s2);
+}
 
 static char	*function_name(int fd, char *buf, char *backup)
 {
@@ -24,7 +37,7 @@ static char	*function_name(int fd, char *buf, char *backup)
 	{
 		read_line = read(fd, buf, BUFFER_SIZE);
 		if (read_line == -1)
-			return (0);
+			return (NULL);
 		else if (read_line == 0)
 			break ;
 		buf[read_line] = '\0';
@@ -77,19 +90,22 @@ char	*get_next_line(int fd)
 		return (0);
 	line = function_name(fd, buf, backup);
 	free(buf);
-	buf = NULL;
 	if (!line)
-		return (NULL);
+		return (free(backup), backup = NULL, NULL);
 	backup = extract(line);
 	return (line);
 }
-// int	main(void)
-// {
-// 	int		fd;
 
-// 	fd = open("read.txt", O_RDONLY);
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	close(fd);
-// 	return (0);
-// }
+/*
+int	main(void)
+{
+	int		fd;
+
+	fd = open("read_error.txt", O_RDONLY);
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	close(fd);
+	return (0);
+}
+*/
